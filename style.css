@@ -73,8 +73,10 @@ p {
 
 /* Hero Section (En-tête) */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('background-space.jpg') no-repeat center center/cover; /* Ajout d'un overlay direct */
-    background-color: var(--dark-bg); /* Couleur de secours */
+    /* Utilise l'image channels4_profile.jpg comme fond si tu as une image de fond plus grande pour la section hero */
+    /* Sinon, tu peux utiliser une couleur de fond unie ou un dégradé */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('background-space.jpg') no-repeat center center/cover; /* Exemple avec une image de fond nommée background-space.jpg */
+    background-color: var(--dark-bg); /* Couleur de secours si background-space.jpg n'existe pas */
     padding: 100px 20px; /* Plus de padding */
     text-align: center;
     color: var(--text-color);
@@ -177,6 +179,12 @@ ul li:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* S'assurer que le texte fort est bien en gras et visible */
+strong {
+    font-weight: 700; /* Assure une graisse de police suffisamment élevée */
+    color: var(--text-color); /* Assure une bonne couleur, souvent blanc */
+}
+
 ul li strong {
     color: var(--accent-color);
     margin-right: 15px;
@@ -201,14 +209,6 @@ ul li strong {
     gap: 15px; /* Espace entre l'emoji et le texte */
 }
 
-.rules-list li strong {
-    display: inline-block; /* Pour l'emoji */
-    font-size: 1.6em; /* Taille de l'emoji */
-    line-height: 1; /* Alignement */
-    margin-right: 0; /* Géré par gap */
-    color: transparent; /* Masquer le texte "strong" si l'emoji est là */
-}
-
 /* Règle spécifique pour les emojis du règlement */
 .rules-list li::before {
     content: attr(data-icon); /* Utilise un attribut data-icon pour afficher l'emoji */
@@ -226,6 +226,13 @@ ul li strong {
 .rules-list li:nth-child(8)::before { content: '🗂️'; }
 .rules-list li:nth-child(9)::before { content: '👮‍♂️'; }
 .rules-list li:nth-child(10)::before { content: '🧠'; }
+
+/* Ajustement spécifique pour les titres des règles */
+.rules-list li strong {
+    font-weight: 700; /* Garde le gras pour le texte après l'emoji */
+    color: var(--text-color); /* S'assure que le texte du titre de la règle est blanc */
+    display: inline; /* Revient à un affichage en ligne après l'emoji */
+}
 
 
 .rule-acceptance {
